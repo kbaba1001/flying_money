@@ -12,15 +12,14 @@ end
   login_as(user, scope: :user)
 end
 
-もし(/^"(.*?)" に "(.*?)" と入力する$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+もし(/^"(.*?)" に "(.*?)" と入力する$/) do |label, value|
+  fill_in(label, with: value)
 end
 
-もし(/^"(.*?)" をクリックする$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+もし(/^"(.*?)" をクリックする$/) do |label|
+  click_on(label)
 end
 
-ならば(/^次の表を表示すること:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+ならば(/^"(.*?)" と表示すること$/) do |value|
+  expect(page).to have_content value
 end
