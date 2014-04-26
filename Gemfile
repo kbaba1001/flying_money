@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'slim-rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'devise'
 
 group :development do
   gem 'pry-byebug', group: :test
