@@ -1,12 +1,13 @@
 # language: ja
 
+@wip
 フィーチャ: ユーザーとして支出を入力したい
 
   シナリオ: 支出を追加する
     前提 次のユーザーが存在する:
       | email             | password |
       | alice@example.com | password |
-    かつ ユーザー "alice@example.com" でログインする
+    かつ ユーザー "alice@example.com" としてサインインする
 
     もし "金額" に "500" と入力する
     かつ "備考" に "増税によるつつましい昼食" と入力する

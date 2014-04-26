@@ -7,9 +7,19 @@
   end
 end
 
-前提(/^ユーザー "(.*?)" でログインする$/) do |email|
+前提(/^ユーザー "(.*?)" としてサインインする$/) do |email|
   user = User.find_by(email: email)
   login_as(user, scope: :user)
+end
+
+前提(/^"(.*?)" を表示する$/) do |page_name|
+  path =
+    case page_name
+    when 'トップページ' then root_path
+    else raise ArgumentError
+    end
+
+  visit(path)
 end
 
 もし(/^"(.*?)" に "(.*?)" と入力する$/) do |label, value|
