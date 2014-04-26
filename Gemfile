@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 
 group :development do
+  gem 'awesome_print', group: :test
   gem 'pry-byebug', group: :test
   gem 'pry-rails', group: :test
   gem 'spring'
@@ -21,7 +22,7 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', group: :development
   gem 'fuubar'
   gem 'rspec-rails', group: :development
 end

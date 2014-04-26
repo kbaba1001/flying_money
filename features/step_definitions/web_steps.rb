@@ -1,9 +1,8 @@
 前提(/^次のユーザーが存在する:$/) do |table|
   table.hashes.each do |hash|
-    User.create!(
-      email:                 hash[:email],
-      password:              hash[:password],
-      password_confirmation: hash[:password],
+    create(:user,
+      email:    hash[:email],
+      password: hash[:password],
     )
   end
 end
