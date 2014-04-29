@@ -7,6 +7,7 @@
       | email             | password |
       | alice@example.com | password |
     かつ ユーザー "alice@example.com" としてサインインする
+    かつ "トップページ" を表示する
 
     もし "金額" に "500" と入力する
     かつ "備考" に "増税によるつつましい昼食" と入力する

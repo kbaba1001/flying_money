@@ -24,5 +24,6 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', group: :development
   gem 'fuubar'
+  gem 'launchy'
   gem 'rspec-rails', group: :development
 end
