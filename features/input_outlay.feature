@@ -4,8 +4,8 @@
 
   背景:
     前提 次のユーザーが存在する:
-      | email             | password |
-      | alice@example.com | password |
+      | email             |
+      | alice@example.com |
     かつ ユーザー "alice@example.com" としてサインインする
     かつ "トップページ" を表示する
 
