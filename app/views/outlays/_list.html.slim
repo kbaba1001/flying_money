@@ -1,0 +1,8 @@
+table
+  tr
+    th=t 'activerecord.attributes.outlay.amount'
+    th=t 'activerecord.attributes.outlay.note'
+  - current_user.outlays.each do |outlay|
+    tr
+      td= number_to_currency(outlay.amount, precision: 0, unit: '円', format: '%n%u')
+      td= outlay.note

@@ -1,6 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    @outlay = Outlay.new
-    @outlays = Outlay.all
+    @outlay = current_user.outlays.build
   end
 end

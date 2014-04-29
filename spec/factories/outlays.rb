@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :outlay do
-    amount 1
-    note "MyString"
-    user nil
+    amount 1000
+    note '昼飯代'
+    user
   end
 end

@@ -31,5 +31,9 @@ end
 end
 
 ならば(/^"(.*?)" と表示すること$/) do |value|
-  expect(page).to have_content value
+  expect(page).to have_content(value)
+end
+
+ならば(/^"(.*?)" と表示しないこと$/) do |value|
+  expect(page).not_to have_content(value)
 end

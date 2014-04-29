@@ -1,11 +1,10 @@
 class OutlaysController < ApplicationController
   def create
-    @outlay = Outlay.new(outlay_params)
+    @outlay = current_user.outlays.build(outlay_params)
 
     if @outlay.save
-      redirect_to dashboard_path
+      redirect_to root_path
     else
-      @outlays = Outlay.all
       render 'dashboards/show'
     end
   end
