@@ -2,16 +2,7 @@ h1 マイページ
 
 = link_to 'Sing out', destroy_user_session_path, method: :delete
 
-= form_for @outlay, method: :post, builder: CustomFormBuilder do |f|
-  = f.label :amount
-  = f.number_field :amount
-  = f.error_messages_on :amount
-  br
-  = f.label :note
-  = f.text_field :note
-  = f.error_messages_on :note
-  br
-  = f.submit 'OK'
+= render partial: 'outlays/form', locals: {outlay: @outlay}
 
 h2 支出
 
@@ -19,7 +10,4 @@ table
   tr
     th=t 'activerecord.attributes.outlay.amount'
     th=t 'activerecord.attributes.outlay.note'
-  - @outlays.each do |outlay|
-    tr
-      td= number_to_currency(outlay.amount, precision: 0, unit: '円', format: '%n%u')
-      td= outlay.note
+  = render @outlays
