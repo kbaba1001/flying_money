@@ -1,0 +1,10 @@
+= form_for outlay, method: :post, builder: CustomFormBuilder do |f|
+  = f.label :amount
+  = f.number_field :amount
+  = f.error_messages_on :amount
+  br
+  = f.label :note
+  = f.text_field :note
+  = f.error_messages_on :note
+  br
+  = f.submit 'OK'

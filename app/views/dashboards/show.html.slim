@@ -1,0 +1,9 @@
+h1 マイページ
+
+= link_to 'Sing out', destroy_user_session_path, method: :delete
+
+= render partial: 'outlays/form', locals: {outlay: @outlay}
+
+h2 支出
+
+= render partial: 'outlays/list'
