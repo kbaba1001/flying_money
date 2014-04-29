@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20140429012337) do
   enable_extension "plpgsql"
 
   create_table "outlays", force: true do |t|
-    t.integer  "amount"
+    t.integer  "amount",     null: false
     t.string   "note"
-    t.integer  "user_id"
+    t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
