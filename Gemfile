@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'awesome_print', group: :test
+  gem 'bullet'
   gem 'pry-byebug', group: :test
   gem 'pry-rails', group: :test
   gem 'spring'
