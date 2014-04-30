@@ -5,4 +5,6 @@ class Outlay < ActiveRecord::Base
   validates :amount, presence: true, length: {maximum: 10}
   validates :user_id, presence: true
   validates :note, length: {maximum: 140}
+
+  scope :created, -> { where.not(id: nil) }
 end

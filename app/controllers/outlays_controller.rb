@@ -12,6 +12,6 @@ class OutlaysController < ApplicationController
   private
 
   def outlay_params
-    params.require(:outlay).permit(:amount, :note)
+    params.require(:outlay).permit(:expense_item_id, :amount, :note)
   end
 end

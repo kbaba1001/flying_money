@@ -4,5 +4,6 @@ ja:
       outlay: 支出
     attributes:
       outlay:
+        expense_item_id: 費目
         amount: 金額
         note: 備考

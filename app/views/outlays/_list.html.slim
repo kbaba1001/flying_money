@@ -1,11 +1,14 @@
 table
   tr
+    th=t 'activerecord.attributes.outlay.expense_item_id'
     th=t 'activerecord.attributes.outlay.amount'
     th=t 'activerecord.attributes.outlay.note'
-  - current_user.outlays.each do |outlay|
+  - current_user.outlays.created.each do |outlay|
     tr
+      td= outlay.expense_item.name
       td= number_to_yen(outlay.amount)
       td= outlay.note
   tr
     th 合計
     td= number_to_yen(current_user.total_amount)
+    td
