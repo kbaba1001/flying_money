@@ -7,4 +7,4 @@ h1 マイページ
 h2 支出
 
 #outlay_list
-  = render partial: 'outlays/list'
+  = render partial: 'outlays/list', locals: {outlays: @outlays}
