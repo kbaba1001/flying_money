@@ -11,19 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429012337) do
+ActiveRecord::Schema.define(version: 20140430125820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "outlays", force: true do |t|
-    t.integer  "amount",     null: false
-    t.string   "note"
-    t.integer  "user_id",    null: false
+  create_table "expense_items", force: true do |t|
+    t.string   "name",          null: false
+    t.integer  "display_order", null: false
+    t.integer  "user_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "expense_items", ["user_id"], name: "index_expense_items_on_user_id", using: :btree
+
+  create_table "outlays", force: true do |t|
+    t.integer  "amount",          null: false
+    t.string   "note"
+    t.integer  "user_id",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "expense_item_id", null: false
+  end
+
+  add_index "outlays", ["expense_item_id"], name: "index_outlays_on_expense_item_id", using: :btree
   add_index "outlays", ["user_id"], name: "index_outlays_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
