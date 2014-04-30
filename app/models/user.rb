@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :outlays
+
+  def total_amount
+    outlays.sum(:amount)
+  end
 end
