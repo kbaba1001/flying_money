@@ -4,8 +4,8 @@ table
     th=t 'activerecord.attributes.outlay.note'
   - current_user.outlays.each do |outlay|
     tr
-      td= number_to_currency(outlay.amount, precision: 0, unit: '円', format: '%n%u')
+      td= number_to_yen(outlay.amount)
       td= outlay.note
   tr
     th 合計
-    td= number_to_currency(current_user.total_amount, precision: 0, unit: '円', format: '%n%u')
+    td= number_to_yen(current_user.total_amount)
