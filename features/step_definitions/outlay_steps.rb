@@ -5,7 +5,7 @@
     expense_item = ExpenseItem.find_by!(name: hash['費目'])
 
     user.outlays.create!(
-      expense_items: expense_item,
+      expense_item: expense_item,
       amount:        hash['金額'],
       note:          hash['備考'],
     )
