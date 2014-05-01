@@ -3,23 +3,23 @@
 フィーチャ: ユーザーとしてサインイン/サインアウトしたい
 
   背景:
-    前提 次のユーザーが存在する:
+    前提   次のユーザーが存在する:
       | email             | password |
       | alice@example.com | password |
 
   シナリオ: サインインする
-    前提 "トップページ" を表示する
+    前提   "トップ" ページを表示する
 
-    もし "Email" に "alice@example.com" と入力する
-    かつ "Password" に "password" と入力する
-    かつ "Sign in" をクリックする
+    もし   "Email" に "alice@example.com" と入力する
+    かつ   "Password" に "password" と入力する
+    かつ   "Sign in" をクリックする
 
     ならば "マイページ" と表示すること
 
   シナリオ: サインアウトする
-    前提 ユーザー "alice@example.com" としてサインインする
-    かつ "トップページ" を表示する
+    前提   ユーザー "alice@example.com" としてサインインする
+    かつ   "トップ" ページを表示する
 
-    もし "Sing out" をクリックする
+    もし   "Sign out" をクリックする
 
     ならば "Sign in" と表示すること

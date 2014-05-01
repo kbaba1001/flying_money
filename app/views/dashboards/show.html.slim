@@ -1,9 +1,10 @@
 h1 マイページ
 
-= link_to 'Sing out', destroy_user_session_path, method: :delete
+= link_to 'Sign out', destroy_user_session_path, method: :delete
 
 = render partial: 'outlays/form', locals: {outlay: @outlay}
 
 h2 支出
 
-= render partial: 'outlays/list'
+#outlay_list
+  = render partial: 'outlays/list', locals: {outlays: @outlays}

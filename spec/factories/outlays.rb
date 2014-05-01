@@ -5,5 +5,6 @@ FactoryGirl.define do
     amount 1000
     note '昼飯代'
     user
+    expense_item { ExpenseItem.first }
   end
 end

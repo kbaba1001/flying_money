@@ -1,7 +1,8 @@
-前提(/^"(.*?)" を表示する$/) do |page_name|
+前提(/^"(.*?)" ページを表示する$/) do |page_name|
   path =
     case page_name
-    when 'トップページ' then root_path
+    when 'トップ'       then root_path
+    when 'サインアップ' then new_user_registration_path
     else raise ArgumentError
     end
 
@@ -12,12 +13,24 @@ end
   fill_in(label, with: value)
 end
 
+もし(/^"(.*?)" として "(.*?)" を選択する$/) do |label, choice|
+  select(choice, from: label)
+end
+
 もし(/^"(.*?)" をクリックする$/) do |label|
   click_on(label)
 end
 
-ならば(/^"(.*?)" と表示すること$/) do |value|
-  expect(page).to have_content(value)
+ならば(/^(?:"(.*?)" に )?"(.*?)" と表示すること$/) do |parent, value|
+  selector =
+    case parent
+    when '支出一覧' then '#outlay_list'
+    else 'body'
+    end
+
+  within(selector) do
+    expect(page).to have_content(value)
+  end
 end
 
 ならば(/^"(.*?)" と表示しないこと$/) do |value|

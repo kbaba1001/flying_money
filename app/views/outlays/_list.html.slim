@@ -1,11 +1,14 @@
+- scope = 'activerecord.attributes.outlay'
+
+p 合計: #{number_to_yen(current_user.total_amount)}
+
 table
   tr
-    th=t 'activerecord.attributes.outlay.amount'
-    th=t 'activerecord.attributes.outlay.note'
-  - current_user.outlays.each do |outlay|
+    th=t 'expense_item_id', scope: scope
+    th=t 'amount', scope: scope
+    th=t 'note', scope: scope
+  - outlays.each do |outlay|
     tr
+      td= outlay.expense_item.name
       td= number_to_yen(outlay.amount)
       td= outlay.note
-  tr
-    th 合計
-    td= number_to_yen(current_user.total_amount)
