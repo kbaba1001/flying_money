@@ -16,12 +16,6 @@ class User < ActiveRecord::Base
   private
 
   def create_default_expense_items
-    ExpenseItem::DEFAULTS.each_with_index do |name, display_order|
-      ExpenseItem.create!(
-        name:          name,
-        display_order: display_order,
-        user:          self
-      )
-    end
+    ExpenseItem.create_default_expense_items!(self)
   end
 end
