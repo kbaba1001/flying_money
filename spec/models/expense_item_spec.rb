@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ExpenseItem do
   describe '.create_default_expense_items!' do
-    let(:user) { create(:user) }
+    let(:user) { User.create(email: 'alice@example.com', password: 'password', password_confirmation: 'password') }
 
     before do
       ExpenseItem.create_default_expense_items!(user)
