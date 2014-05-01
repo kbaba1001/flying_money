@@ -8,7 +8,7 @@
       | alice@example.com | password |
 
   シナリオ: サインインする
-    前提 "トップページ" を表示する
+    前提 "トップ" ページを表示する
 
     もし "Email" に "alice@example.com" と入力する
     かつ "Password" に "password" と入力する
@@ -18,7 +18,7 @@
 
   シナリオ: サインアウトする
     前提 ユーザー "alice@example.com" としてサインインする
-    かつ "トップページ" を表示する
+    かつ "トップ" ページを表示する
 
     もし "Sing out" をクリックする
 

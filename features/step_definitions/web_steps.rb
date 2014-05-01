@@ -1,7 +1,7 @@
-前提(/^"(.*?)" を表示する$/) do |page_name|
+前提(/^"(.*?)" ページを表示する$/) do |page_name|
   path =
     case page_name
-    when 'トップページ' then root_path
+    when 'トップ' then root_path
     else raise ArgumentError
     end
 
