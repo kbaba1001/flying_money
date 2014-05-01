@@ -1,6 +1,6 @@
 = form_for outlay, method: :post, builder: CustomFormBuilder do |f|
   = f.label :expense_item_id
-  = f.collection_select :expense_item_id, current_user.expense_items.order(:display_order), :id, :name
+  = f.collection_select :expense_item_id, current_user.expense_items.ordered, :id, :name
   = f.error_messages_on :expense_item_id
   br
   = f.label :amount
