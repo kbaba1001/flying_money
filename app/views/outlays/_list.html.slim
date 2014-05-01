@@ -1,8 +1,10 @@
+- scope = 'activerecord.attributes.outlay'
+
 table
   tr
-    th=t 'activerecord.attributes.outlay.expense_item_id'
-    th=t 'activerecord.attributes.outlay.amount'
-    th=t 'activerecord.attributes.outlay.note'
+    th=t 'expense_item_id', scope: scope
+    th=t 'amount', scope: scope
+    th=t 'note', scope: scope
   - outlays.each do |outlay|
     tr
       td= outlay.expense_item.name
