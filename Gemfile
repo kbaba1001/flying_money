@@ -18,7 +18,7 @@ group :development do
   gem 'awesome_print', group: :test
   gem 'bullet'
   gem 'dotenv-rails', groups: :test
-  gem 'metric_fu'
+  gem 'metric_fu', require: false
   gem 'pry-byebug', group: :test
   gem 'pry-rails', group: :test
   gem 'spring'
