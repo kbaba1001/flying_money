@@ -5,7 +5,7 @@ class OutlaysController < ApplicationController
     if @outlay.save
       redirect_to root_path
     else
-      @outlay_months = current_user.outlays.created.includes(:expense_item).group_by {|outlay| outlay.created_at.beginning_of_month }
+      @outlay_months = current_user.outlays.group_by_months
       render 'dashboards/show'
     end
   end
