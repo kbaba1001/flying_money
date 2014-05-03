@@ -1,7 +1,6 @@
 language: ruby
 rvm:
   - 2.1.1
-  - 2.1.0
 bundler_args: --without production
 env:
   - DEV_SECRET_KEY_BASE=76d1d064b4abaae6f0a2c4f740f128e89ae66c8ef00b0c46d32ae8713d4fa8c811c6f719cc7ca9472e660e7a657fae5c079ac82b73c61787446f4f8a7af9fb0a
