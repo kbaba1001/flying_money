@@ -6,8 +6,4 @@ class User < ActiveRecord::Base
 
   has_many :outlays
   has_many :expense_items
-
-  def total_amount
-    outlays.sum(:amount)
-  end
 end
