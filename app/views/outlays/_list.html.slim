@@ -1,14 +1,17 @@
 - scope = 'activerecord.attributes.outlay'
 
-p 合計: #{number_to_yen(current_user.total_amount)}
+- outlay_months.each do |month, outlays|
+  h3= month.strftime('%Y/%m')
 
-table
-  tr
-    th=t 'expense_item_id', scope: scope
-    th=t 'amount', scope: scope
-    th=t 'note', scope: scope
-  - outlays.each do |outlay|
+  p 合計額: #{number_to_yen(outlays.sum(&:amount))}
+
+  table
     tr
-      td= outlay.expense_item.name
-      td= number_to_yen(outlay.amount)
-      td= outlay.note
+      th=t 'expense_item_id', scope: scope
+      th=t 'amount', scope: scope
+      th=t 'note', scope: scope
+    - outlays.each do |outlay|
+      tr
+        td= outlay.expense_item.name
+        td= number_to_yen(outlay.amount)
+        td= outlay.note

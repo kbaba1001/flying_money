@@ -2,12 +2,12 @@
   user = User.find_by(email: email)
 
   table.hashes.each do |hash|
-    expense_item = ExpenseItem.find_by!(name: hash['費目'])
+    attrs = {}
+    attrs[:expense_item] = ExpenseItem.find_by!(name: hash['費目'])
+    attrs[:amount]       = hash['金額']
+    attrs[:note]         = hash['備考'] if hash['備考']
+    attrs[:created_at]   = Date.parse(hash['登録日']) if hash['登録日']
 
-    user.outlays.create!(
-      expense_item: expense_item,
-      amount:        hash['金額'],
-      note:          hash['備考'],
-    )
+    user.outlays.create!(attrs)
   end
 end
