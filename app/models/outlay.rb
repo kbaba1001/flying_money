@@ -6,5 +6,9 @@ class Outlay < ActiveRecord::Base
   validates :user_id, presence: true
   validates :note, length: {maximum: 140}
 
-  scope :created, -> { where.not(id: nil) }
+  scope :group_by_months, -> {
+    where.not(id: nil)
+      .includes(:expense_item)
+      .group_by {|outlay| outlay.created_at.beginning_of_month }
+  }
 end
