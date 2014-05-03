@@ -1,5 +1,6 @@
 language: ruby
 rvm:
   - 2.1.1
-  - 2.1.0
 bundler_args: --without production
+env: 'DEV_SECRET_KEY_BASE="travis" TEST_SECRET_KEY_BASE="travis" DB_USERNAME="postgres"'
+before_script: 'bin/rake db:drop db:create db:migrate db:seed test:prepare'
