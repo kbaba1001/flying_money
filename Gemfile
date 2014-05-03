@@ -31,6 +31,7 @@ group :test do
   gem 'fuubar'
   gem 'launchy'
   gem 'rspec-rails', group: :development
+  gem 'simplecov', require: false
 end
 
 group :production do
