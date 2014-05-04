@@ -13,6 +13,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'slim-rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'validates_email_format_of'
 
 group :development do
   gem 'awesome_print', group: :test
