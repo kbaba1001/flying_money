@@ -1,0 +1,25 @@
+- scope = 'activerecord.attributes.expense_item'
+
+h1 費目管理
+
+= form_for @expense_item, method: :post, builder: CustomFormBuilder do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.error_messages_on :name
+  br
+  = f.label :display_order
+  = f.text_field :display_order
+  = f.error_messages_on :display_order
+  br
+  = f.submit 'OK'
+
+h2 費目一覧
+
+table
+  tr
+    th=t 'display_order', scope: scope
+    th=t 'name', scope: scope
+  - @expense_items.each do |expense_item|
+    tr
+      td= expense_item.display_order
+      td= expense_item.name
