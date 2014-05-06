@@ -40,3 +40,7 @@ end
 ならば(/^"(.*?)" と表示しないこと$/) do |value|
   expect(page).not_to have_content(value)
 end
+
+もし(/^"(.*?)" の削除リンクをクリックする$/) do |name|
+  find(:xpath, "//td[string()='#{name}']/parent::tr").click_link('削除')
+end

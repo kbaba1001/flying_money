@@ -17,6 +17,12 @@ class ExpenseItemsController < ApplicationController
     end
   end
 
+  def destroy
+    expense_item = ExpenseItem.find(params[:id])
+    expense_item.destroy
+    redirect_to expense_items_path
+  end
+
   private
 
   def expense_item_params

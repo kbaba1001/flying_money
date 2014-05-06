@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resource :dashboard, only: %i(show)
   resources :outlays, only: %i(create)
-  resources :expense_items, only: %i(index create)
+  resources :expense_items, only: %i(index create destroy)
 end
