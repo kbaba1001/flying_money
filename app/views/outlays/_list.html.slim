@@ -7,11 +7,13 @@
 
   table
     tr
-      th=t 'expense_item_id', scope: scope
-      th=t 'amount', scope: scope
-      th=t 'note', scope: scope
+      th=t :created_at, scope: scope
+      th=t :expense_item_id, scope: scope
+      th=t :amount, scope: scope
+      th=t :note, scope: scope
     - outlays.each do |outlay|
       tr
+        td= outlay.created_at.day
         td= outlay.expense_item.name
         td= number_to_yen(outlay.amount)
         td= outlay.note
