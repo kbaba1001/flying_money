@@ -21,7 +21,7 @@ end
   click_on(label)
 end
 
-ならば(/^(?:"(.*?)" に )?"(.*?)" と表示すること$/) do |parent, value|
+ならば(/^(?:"(.*?)" に )?"([^"]*?)" と表示すること$/) do |parent, value|
   selector =
     case parent
     when '支出一覧' then '#outlay_list'
@@ -31,6 +31,10 @@ end
   within(selector) do
     expect(page).to have_content(value)
   end
+end
+
+ならば(/^"(.*?)" フィールドに "(.*?)" と表示すること$/) do |label, value|
+  expect(find_field(label).value).to eq(value)
 end
 
 ならば(/^"(.*?)" と表示しないこと$/) do |value|
