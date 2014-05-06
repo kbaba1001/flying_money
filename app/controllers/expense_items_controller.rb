@@ -1,6 +1,8 @@
 class ExpenseItemsController < ApplicationController
   def index
     @expense_item = current_user.expense_items.build
+    @expense_item.set_default_display_order!
+
     @expense_items = current_user.expense_items.ordered
   end
 

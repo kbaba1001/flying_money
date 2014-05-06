@@ -6,7 +6,7 @@ class ExpenseItem < ActiveRecord::Base
   validates :display_order, presence: true, uniqueness: {scope: :user_id}, numericality: {only_integer: true, greater_than: 0}
   validates :user_id, presence: true
 
-  before_validation :set_default_display_order, if: 'display_order.blank?'
+  before_validation :set_default_display_order!, if: 'display_order.blank?'
 
   DEFAULTS = %w(食費 交通費 会食費 教育費 娯楽費 医療費 雑費)
 
@@ -24,9 +24,9 @@ class ExpenseItem < ActiveRecord::Base
     end
   end
 
-  private
+  def set_default_display_order!
+    return unless user
 
-  def set_default_display_order
-    self.display_order = ExpenseItem.where(user: user).maximum(:display_order) + 1
+    self.display_order = ExpenseItem.where(user: user).maximum(:display_order).to_i + 1
   end
 end
