@@ -19,8 +19,8 @@ h2 費目一覧
 
 table
   tr
-    th=t 'display_order', scope: scope
-    th=t 'name', scope: scope
+    th=t :display_order, scope: scope
+    th=t :name,          scope: scope
   - @expense_items.each do |expense_item|
     tr
       td= expense_item.display_order
