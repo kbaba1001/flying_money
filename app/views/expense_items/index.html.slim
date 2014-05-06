@@ -2,6 +2,8 @@
 
 h1 費目管理
 
+= link_to 'トップページへ', root_path
+
 = form_for @expense_item, method: :post, builder: CustomFormBuilder do |f|
   = f.label :name
   = f.text_field :name
