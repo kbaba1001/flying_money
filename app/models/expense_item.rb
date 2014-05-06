@@ -3,7 +3,7 @@ class ExpenseItem < ActiveRecord::Base
   has_many :outlays
 
   validates :name, presence: true, uniqueness: {scope: :user_id}
-  validates :display_order, presence: true, uniqueness: {scope: :user_id}, numericality: {only_integer: true, greater_than: 0}
+  validates :display_order, presence: true, numericality: {only_integer: true, greater_than: 0}
   validates :user_id, presence: true
 
   before_validation :set_default_display_order!, if: 'display_order.blank?'
