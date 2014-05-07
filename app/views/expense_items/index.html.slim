@@ -18,12 +18,14 @@ h1 費目管理
 h2 費目一覧
 
 table
-  tr
-    th=t :display_order, scope: scope
-    th=t :name,          scope: scope
-    th 管理
-  - @expense_items.each do |expense_item|
+  thead
     tr
-      td= expense_item.display_order
-      td= expense_item.name
-      td= link_to '削除', expense_item_path(expense_item), method: :delete
+      th=t :display_order, scope: scope
+      th=t :name,          scope: scope
+      th 管理
+  tbody
+    - @expense_items.each do |expense_item|
+      tr
+        td= expense_item.display_order
+        td= expense_item.name
+        td= link_to '削除', expense_item_path(expense_item), method: :delete

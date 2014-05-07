@@ -6,14 +6,16 @@
   p 合計額: #{number_to_yen(outlays.sum(&:amount))}
 
   table
-    tr
-      th=t :created_at,      scope: scope
-      th=t :expense_item_id, scope: scope
-      th=t :amount,          scope: scope
-      th=t :note,            scope: scope
-    - outlays.each do |outlay|
+    thead
       tr
-        td= outlay.created_at.day
-        td= outlay.expense_item.name
-        td= number_to_yen(outlay.amount)
-        td= outlay.note
+        th=t :created_at,      scope: scope
+        th=t :expense_item_id, scope: scope
+        th=t :amount,          scope: scope
+        th=t :note,            scope: scope
+    tbody
+      - outlays.each do |outlay|
+        tr
+          td= outlay.created_at.day
+          td= outlay.expense_item.name
+          td= number_to_yen(outlay.amount)
+          td= outlay.note
