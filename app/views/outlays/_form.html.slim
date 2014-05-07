@@ -1,15 +1,28 @@
 = form_for outlay, method: :post, builder: CustomFormBuilder do |f|
-  = f.label :expense_item_id
-  = f.collection_select :expense_item_id, current_user.expense_items.ordered, :id, :name
-  = f.error_messages_on :expense_item_id
-  = link_to '変更する', expense_items_path
-  br
-  = f.label :amount
-  = f.number_field :amount
-  = f.error_messages_on :amount
-  br
-  = f.label :note
-  = f.text_field :note
-  = f.error_messages_on :note
-  br
-  = f.submit 'OK'
+  fieldset
+    legend New
+    .row
+      .small-2.columns
+          = f.label :expense_item_id, class: 'right inline'
+      .small-10.columns
+        .row.collapse
+          .small-10.columns.error
+            = f.collection_select :expense_item_id, current_user.expense_items.ordered, :id, :name
+            = f.error_messages_on :expense_item_id
+          .small-2.columns
+            = link_to '設定', expense_items_path, class: 'button postfix'
+    .row
+      .small-2.columns
+        = f.label :amount, class: 'right inline'
+      .small-10.columns.error
+        = f.number_field :amount
+        = f.error_messages_on :amount
+    .row
+      .small-2.columns
+        = f.label :note, class: 'right inline'
+      .small-10.columns.error
+        = f.text_field :note
+        = f.error_messages_on :note
+    .row
+      .small-12.column
+        = f.submit 'OK', class: 'button right'
