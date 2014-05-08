@@ -1,14 +1,14 @@
 - scope = 'activerecord.attributes.outlay'
 
 dl.accordion data-accordion=''
-  - outlay_months.each do |month, outlays|
+  - outlay_months.each_with_index do |(month, outlays), index|
     dd
       = link_to "#accordion-outlay-#{month.strftime('%Y-%m')}" do
         .clearfix
           span.left #{month.strftime('%Y/%m')}
           span.right #{number_to_yen(outlays.sum(&:amount))}
 
-      .active.content id="accordion-outlay-#{month.strftime('%Y-%m')}"
+      .content id="accordion-outlay-#{month.strftime('%Y-%m')}" class=(index.zero? ? 'active' : '')
         .row
           .small-1.columns.text-center=t :created_at,      scope: scope
           .small-3.large-2.columns.text-center=t :expense_item_id, scope: scope
