@@ -15,7 +15,7 @@
       .small-2.columns
         = f.label :amount, class: 'right inline'
       .small-10.columns.error
-        = f.number_field :amount
+        = f.number_field :amount, maxlength: 10, min: 0, step: 100
         = f.error_messages_on :amount
     .row
       .small-2.columns
