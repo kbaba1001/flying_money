@@ -4,7 +4,7 @@ ja:
       outlay: 支出
     attributes:
       outlay:
-        created_at: 登録日
+        created_at: 日
         expense_item_id: 費目
         amount: 金額
         note: メモ
