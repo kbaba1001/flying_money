@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
-  resource :dashboard, only: %i(show)
   resources :outlays, only: %i(create)
   resources :expense_items, only: %i(index create destroy)
 end
