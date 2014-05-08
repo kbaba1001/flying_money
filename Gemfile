@@ -31,6 +31,7 @@ group :test do
   gem 'factory_girl_rails', group: :development
   gem 'fuubar'
   gem 'launchy'
+  gem 'poltergeist', require: false
   gem 'rspec-rails', group: :development
   gem 'simplecov', require: false
 end
