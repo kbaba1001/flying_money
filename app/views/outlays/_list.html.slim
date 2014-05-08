@@ -3,10 +3,12 @@
 dl.accordion data-accordion=''
   - outlay_months.each do |month, outlays|
     dd
-      = link_to month.strftime('%Y/%m'), "#accordion-outlay-#{month.strftime('%Y-%m')}"
-      .content id="accordion-outlay-#{month.strftime('%Y-%m')}"
-        p 合計額: #{number_to_yen(outlays.sum(&:amount))}
+      = link_to "#accordion-outlay-#{month.strftime('%Y-%m')}" do
+        .clearfix
+          span.left #{month.strftime('%Y/%m')}
+          span.right #{number_to_yen(outlays.sum(&:amount))}
 
+      .active.content id="accordion-outlay-#{month.strftime('%Y-%m')}"
         table
           thead
             tr
