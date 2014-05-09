@@ -6,6 +6,7 @@ gem 'rails', '~> 4.1.0'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'draper', '~> 1.3'
 gem 'foundation-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
