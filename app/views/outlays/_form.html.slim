@@ -4,11 +4,12 @@
         = f.label :expense_item_id, class: 'right inline'
     .small-10.columns
       .row.collapse
-        .small-10.columns.error
+        .small-11.columns.error
           = f.collection_select :expense_item_id, current_user.expense_items.ordered, :id, :name
           = f.error_messages_on :expense_item_id
-        .small-2.columns
-          = link_to '設定', expense_items_path, class: 'button postfix'
+        .small-1.columns
+          = link_to expense_items_path, class: 'button postfix', id: 'expense_item_setting' do
+            = fa_icon 'cog 2x', style: 'line-height: 48px;'
   .row
     .small-2.columns
       = f.label :amount, class: 'right inline'

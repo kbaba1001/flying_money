@@ -11,3 +11,7 @@
     user.outlays.create!(attrs)
   end
 end
+
+もし(/^費目の設定ボタンをクリックする$/) do
+  find('#expense_item_setting').click
+end
