@@ -13,7 +13,6 @@ dl.accordion data-accordion=''
           .small-1.columns.text-center=t :created_at,      scope: scope
           .small-3.large-2.columns.text-center=t :expense_item_id, scope: scope
           .small-6.large-7.columns.text-right=t :amount,          scope: scope
-          / .small-2.columns.text-center 操作
         - outlays.each do |outlay|
           .row
             .small-1.columns.text-center= outlay.created_at.day
@@ -23,4 +22,3 @@ dl.accordion data-accordion=''
                 span.has-tip data-tooltip='' title="#{note}"= number_to_yen(outlay.amount)
               - else
                 = number_to_yen(outlay.amount)
-            / .small-2.columns.text-center 操作
