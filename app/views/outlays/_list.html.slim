@@ -5,8 +5,8 @@ dl.accordion data-accordion=''
     dd
       = link_to "##{accordion_css_id(month)}" do
         .clearfix
-          span.left #{month.strftime('%Y/%m')}
-          span.right #{number_to_yen(outlays.sum(&:amount))}
+          span.left= month.strftime('%Y/%m')
+          span.right= number_to_yen(outlays.sum(&:amount))
 
       .content id="#{accordion_css_id(month)}" class=(index.zero? ? 'active' : '')
         .row
