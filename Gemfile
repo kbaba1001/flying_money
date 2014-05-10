@@ -6,12 +6,14 @@ gem 'rails', '~> 4.1.0'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'draper', '~> 1.3'
+gem 'font-awesome-rails'
+gem 'foundation-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 gem 'slim-rails'
-gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'validates_email_format_of'
 
@@ -31,6 +33,8 @@ group :test do
   gem 'factory_girl_rails', group: :development
   gem 'fuubar'
   gem 'launchy'
+  gem 'poltergeist', require: false
+  gem 'rspec-html-matchers'
   gem 'rspec-rails', group: :development
   gem 'simplecov', require: false
 end

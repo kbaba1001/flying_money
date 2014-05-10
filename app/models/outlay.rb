@@ -10,6 +10,7 @@ class Outlay < ActiveRecord::Base
   scope :group_by_months, -> {
     where.not(id: nil)
       .includes(:expense_item)
+      .order(created_at: :desc)
       .group_by {|outlay| outlay.created_at.beginning_of_month }
   }
 end

@@ -44,3 +44,7 @@ end
 もし(/^"(.*?)" の削除リンクをクリックする$/) do |name|
   find(:xpath, "//td[string()='#{name}']/parent::tr").click_link('削除')
 end
+
+もし(/^全ての Tooltips を開く$/) do
+  find('.has-tip').trigger(:mouseover)
+end

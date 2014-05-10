@@ -5,9 +5,13 @@
     attrs = {}
     attrs[:expense_item] = ExpenseItem.find_by!(name: hash['費目'])
     attrs[:amount]       = hash['金額']
-    attrs[:note]         = hash['備考'] if hash['備考']
+    attrs[:note]         = hash['メモ'] if hash['メモ']
     attrs[:created_at]   = Date.parse(hash['登録日']) if hash['登録日']
 
     user.outlays.create!(attrs)
   end
+end
+
+もし(/^費目の設定ボタンをクリックする$/) do
+  find('#expense_item_setting').click
 end
