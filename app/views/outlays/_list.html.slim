@@ -10,11 +10,14 @@ dl.accordion data-accordion=''
 
       .content id="#{accordion_css_id(month)}" class=(index.zero? ? 'active' : '')
         .row
-          .small-1.columns.text-center=t :created_at, scope: scope
-          .small-3.large-2.columns.text-center=t :expense_item_id, scope: scope
-          .small-6.large-7.columns.text-right=t :amount, scope: scope
-        - OutlayDecorator.decorate_collection(outlays).each do |outlay|
-          .row
-            .small-1.columns.text-center= outlay.created_at.day
-            .small-3.large-2.columns.text-center= outlay.expense_item.name
-            .small-6.large-7.columns.text-right= outlay.display_amount
+          .large-6.columns
+            .row
+              .small-2.columns.text-center.radius.secondary.label=t :created_at, scope: scope
+              .small-4.columns.text-center.radius.secondary.label=t :expense_item_id, scope: scope
+              .small-6.columns.text-center.radius.secondary.label=t :amount, scope: scope
+            - OutlayDecorator.decorate_collection(outlays).each do |outlay|
+              .row
+                .small-2.columns.text-right= outlay.created_at.day
+                .small-4.columns.text-right= outlay.expense_item.name
+                .small-6.columns.text-right= outlay.display_amount
+          .large-6.columns
