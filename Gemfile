@@ -33,6 +33,7 @@ group :test do
   gem 'fuubar'
   gem 'launchy'
   gem 'poltergeist', require: false
+  gem 'rspec-html-matchers'
   gem 'rspec-rails', group: :development
   gem 'simplecov', require: false
 end
