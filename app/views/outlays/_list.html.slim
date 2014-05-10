@@ -10,9 +10,9 @@ dl.accordion data-accordion=''
 
       .content id="#{accordion_css_id(month)}" class=(index.zero? ? 'active' : '')
         .row
-          .small-1.columns.text-center=t :created_at,      scope: scope
+          .small-1.columns.text-center=t :created_at, scope: scope
           .small-3.large-2.columns.text-center=t :expense_item_id, scope: scope
-          .small-6.large-7.columns.text-right=t :amount,          scope: scope
+          .small-6.large-7.columns.text-right=t :amount, scope: scope
         - outlays.each do |outlay|
           .row
             .small-1.columns.text-center= outlay.created_at.day
