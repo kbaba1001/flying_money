@@ -21,6 +21,10 @@ end
   click_on(label)
 end
 
+もし(/^"(.*?)" ボタンをクリックする$/) do |label|
+  click_button(label)
+end
+
 ならば(/^(?:"(.*?)" に )?"([^"]*?)" と表示すること$/) do |parent, value|
   selector =
     case parent

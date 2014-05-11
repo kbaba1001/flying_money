@@ -12,9 +12,9 @@
 
     もし   "Email" に "alice@example.com" と入力する
     かつ   "Password" に "password" と入力する
-    かつ   "Sign in" をクリックする
+    かつ   "Sign in" ボタンをクリックする
 
-    ならば "マイページ" と表示すること
+    ならば "Sign out" と表示すること
 
   シナリオ: サインアウトする
     前提   ユーザー "alice@example.com" としてサインインする
