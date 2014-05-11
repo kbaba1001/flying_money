@@ -1,19 +1,23 @@
 - scope = 'activerecord.attributes.expense_item'
 
-h1 費目管理
-
-= link_to 'トップページへ', root_path
-
 = form_for @expense_item, method: :post do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.error_messages_on :name
-  br
-  = f.label :display_order
-  = f.text_field :display_order
-  = f.error_messages_on :display_order
-  br
-  = f.submit 'OK'
+  fieldset
+    legend 費目追加
+    .row
+      .small-2.columns
+        = f.label :name, class: 'right inline'
+      .small-10.columns.error
+        = f.text_field :name
+        = f.error_messages_on :name
+    .row
+      .small-2.columns
+        = f.label :display_order, class: 'right inline'
+      .small-10.columns.error
+        = f.text_field :display_order
+        = f.error_messages_on :display_order
+    .row
+      .small-12.column
+        = f.submit 'OK', class: 'button right'
 
 h2 費目一覧
 
