@@ -4,15 +4,15 @@
   fieldset
     legend 費目追加
     .row
-      .small-2.columns
+      .small-3.large-2.columns
         = f.label :name, class: 'right inline'
-      .small-10.columns.error
+      .small-9.large-10.columns.error
         = f.text_field :name
         = f.error_messages_on :name
     .row
-      .small-2.columns
+      .small-3.large-2.columns
         = f.label :display_order, class: 'right inline'
-      .small-10.columns.error
+      .small-9.large-10.columns.error
         = f.text_field :display_order
         = f.error_messages_on :display_order
     .row
