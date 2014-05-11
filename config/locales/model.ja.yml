@@ -9,5 +9,5 @@ ja:
         amount: 金額
         note: メモ
       expense_item:
-        name: 費目名
-        display_order: 表示順
+        name: 名前
+        display_order: 順番
