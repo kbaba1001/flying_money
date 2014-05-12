@@ -19,6 +19,8 @@ html
           section.top-bar-section
             ul.right
               - if current_user
+                li= link_to edit_user_registration_path do
+                  = fa_icon 'user', text: current_user.email
                 li= link_to 'Sign out', destroy_user_session_path, method: :delete
               - else
                 li= link_to 'Sign in', new_user_session_path
