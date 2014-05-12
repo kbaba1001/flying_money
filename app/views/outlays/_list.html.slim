@@ -21,3 +21,10 @@ dl.accordion data-accordion=''
                 .small-4.columns.text-right= outlay.expense_item.name
                 .small-6.columns.text-right= outlay.display_amount
           .large-6.columns
+            - outlays.group_by {|o| o.expense_item.name }.each do |expense_item_name, ol|
+              .row
+                .small-3.columns= expense_item_name
+                .small-9.columns
+                  .progress
+                    .meter.text-center style="width: #{(ol.size/outlays.size.to_f)*100}%"
+                      = number_to_yen(ol.sum(&:amount))
