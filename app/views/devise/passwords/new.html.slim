@@ -2,10 +2,11 @@ h2
   | Forgot your password?
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
   = devise_error_messages!
-  div
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  div
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+  .row
+    .small-3.large-2.columns
+      = f.label :email, class: 'right inline'
+    .small-9.large-10.columns
+      = f.email_field :email, autofocus: true
+  .row
+    .small-12.column
+      = f.submit 'Send me reset password instructions', class: 'button right'
