@@ -31,6 +31,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails', group: :development
+  gem 'faker', group: :development
   gem 'fuubar'
   gem 'launchy'
   gem 'poltergeist', require: false
