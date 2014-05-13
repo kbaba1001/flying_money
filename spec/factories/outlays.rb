@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :outlay do
-    amount 1000
-    note '昼飯代'
+    amount { Faker::Number.number((3..5).to_a.sample) }
+    note { Faker::Lorem.sentence.first(140) }
     user
-    expense_item { ExpenseItem.first }
+    expense_item { ExpenseItem.all.sample }
   end
 end
