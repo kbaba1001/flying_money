@@ -11,13 +11,7 @@ dl.accordion data-accordion=''
       .content id="#{accordion_css_id(month)}" class=(index.zero? ? 'active' : '')
         .row
           .samll-12.columns
-            - outlays.group_by {|o| o.expense_item.name }.each do |expense_item_name, ol|
-              .row
-                .small-2.columns.text-right= expense_item_name
-                .small-2.columns.text-right= number_to_yen(ol.sum(&:amount))
-                .small-8.columns
-                  .progress
-                    .meter.text-center style="width: #{(ol.size/outlays.size.to_f)*100}%"
+            = bar_chart Outlay.includes(:expense_item).where(user: current_user).where.not(id: nil).group(:expense_item).sum(:amount).each_with_object({}) {|(ei, count), hash| hash[ei.name] = count }
           .small-12.columns
             .row
               .small-2.columns.text-center.radius.secondary.label=t :created_at, scope: scope
