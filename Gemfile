@@ -24,6 +24,7 @@ group :development do
   gem 'metric_fu', require: false
   gem 'pry-byebug', group: :test
   gem 'pry-rails', group: :test
+  gem 'quiet_assets'
   gem 'spring'
 end
 
