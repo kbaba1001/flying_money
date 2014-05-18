@@ -1,5 +1,3 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :outlay do
     amount { Faker::Number.number((3..5).to_a.sample) }

@@ -13,4 +13,10 @@ class Outlay < ActiveRecord::Base
       .order(created_at: :desc)
       .group_by {|outlay| outlay.created_at.beginning_of_month }
   }
+
+  scope :amounts_by_expense_item, ->(date) {
+    where('? <= outlays.created_at AND outlays.created_at < ?',
+      date.beginning_of_month, date.next_month.beginning_of_month)
+    .joins(:expense_item).group(:name).sum(:amount)
+  }
 end
