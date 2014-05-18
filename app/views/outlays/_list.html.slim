@@ -11,7 +11,7 @@ dl.accordion data-accordion=''
       .content id="#{accordion_css_id(month)}" class=(index.zero? ? 'active' : '')
         .row
           .samll-12.columns
-            = bar_chart Outlay.includes(:expense_item).where(user: current_user).where.not(id: nil).group(:expense_item).sum(:amount).each_with_object({}) {|(ei, count), hash| hash[ei.name] = count }
+            = bar_chart Outlay.amounts_by_expense_item(month)
           .small-12.columns
             .row
               .small-2.columns.text-center.radius.secondary.label=t :created_at, scope: scope
