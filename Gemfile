@@ -19,27 +19,33 @@ gem 'uglifier', '>= 1.3.0'
 gem 'validates_email_format_of'
 
 group :development do
-  gem 'awesome_print', group: :test
   gem 'bullet'
-  gem 'dotenv-rails', groups: :test
   gem 'metric_fu', require: false
-  gem 'pry-byebug', group: :test
-  gem 'pry-rails', group: :test
   gem 'quiet_assets'
   gem 'spring'
+
+  group :test do
+    gem 'awesome_print'
+    gem 'dotenv-rails'
+    gem 'pry-byebug'
+    gem 'pry-rails'
+  end
 end
 
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'factory_girl_rails', group: :development
-  gem 'faker', group: :development
   gem 'fuubar'
   gem 'launchy'
   gem 'poltergeist', require: false
   gem 'rspec-html-matchers'
-  gem 'rspec-rails', group: :development
   gem 'simplecov', require: false
+
+  group :development do
+    gem 'factory_girl_rails'
+    gem 'faker'
+    gem 'rspec-rails'
+  end
 end
 
 group :production do
