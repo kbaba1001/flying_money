@@ -18,5 +18,7 @@ end
 
 
 もし(/^"(.*?)" の削除ボタンをクリックする$/) do |amount|
-  pending # express the regexp above with the code you wish you had
+  outlay = Outlay.find_by!(amount: amount)
+
+  click_link("remove_outlay_#{outlay.id}")
 end

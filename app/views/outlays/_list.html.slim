@@ -21,4 +21,7 @@ dl.accordion data-accordion=''
               .row
                 .small-2.columns.text-right= outlay.created_at.day
                 .small-4.columns.text-right= outlay.expense_item.name
-                .small-6.columns.text-right= outlay.display_amount
+                .small-6.columns.text-right
+                  = outlay.display_amount
+                  = link_to outlay_path(outlay), method: :delete, id: "remove_outlay_#{outlay.id}" do
+                    = fa_icon 'trash-o'

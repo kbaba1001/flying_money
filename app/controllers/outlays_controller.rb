@@ -10,6 +10,12 @@ class OutlaysController < ApplicationController
     end
   end
 
+  def destroy
+    outlay = Outlay.find(params[:id])
+    outlay.destroy
+    redirect_to root_path
+  end
+
   private
 
   def outlay_params
