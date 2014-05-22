@@ -15,3 +15,8 @@ end
 もし(/^費目の設定ボタンをクリックする$/) do
   find('#expense_item_setting').click
 end
+
+
+もし(/^"(.*?)" の削除ボタンをクリックする$/) do |amount|
+  pending # express the regexp above with the code you wish you had
+end
