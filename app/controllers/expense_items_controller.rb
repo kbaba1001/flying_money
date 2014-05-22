@@ -7,12 +7,13 @@ class ExpenseItemsController < ApplicationController
   end
 
   def create
-    @expense_item = current_user.expense_items.build(expense_item_params)
+    user = User.find(current_user)
+    @expense_item = user.expense_items.build(expense_item_params)
 
     if @expense_item.save
       redirect_to expense_items_path
     else
-      @expense_items = current_user.expense_items.ordered
+      @expense_items = user.expense_items.ordered
       render :index
     end
   end
