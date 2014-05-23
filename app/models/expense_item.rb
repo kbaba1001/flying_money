@@ -1,6 +1,6 @@
 class ExpenseItem < ActiveRecord::Base
   belongs_to :user
-  has_many :outlays
+  has_many :outlays, dependent: :destroy
 
   validates :name, presence: true, uniqueness: {scope: :user_id}
   validates :display_order, presence: true, numericality: {only_integer: true, greater_than: 0}
