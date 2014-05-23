@@ -15,3 +15,10 @@ end
 もし(/^費目の設定ボタンをクリックする$/) do
   find('#expense_item_setting').click
 end
+
+
+もし(/^"(.*?)" の削除ボタンをクリックする$/) do |amount|
+  outlay = Outlay.find_by!(amount: amount)
+
+  click_link("remove_outlay_#{outlay.id}")
+end
