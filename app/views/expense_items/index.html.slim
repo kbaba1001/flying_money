@@ -32,4 +32,4 @@ table
       tr
         td= expense_item.display_order
         td= expense_item.name
-        td= link_to '削除', expense_item_path(expense_item), method: :delete
+        td= link_to '削除', expense_item_path(expense_item), method: :delete, data: {confirm: '本当に削除しますか?'}
