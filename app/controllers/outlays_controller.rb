@@ -14,6 +14,10 @@ class OutlaysController < ApplicationController
   def index
     user = User.find(current_user)
     @outlays = user.outlays.monthly(parse_params_date).decorate
+    @outlay_sums_by_expense_item = @outlays.each_with_object({}) {|ol, hash|
+      name = ol.expense_item.name
+      hash[name] = hash[name].to_i + ol.amount
+    }
   end
 
   def destroy

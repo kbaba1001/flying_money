@@ -7,6 +7,7 @@ class Outlay < ActiveRecord::Base
   validates :note, length: {maximum: 140}
   validates :user_id, presence: true
 
+  # TODO: 支出一覧の表示方法を変更したら消すこと
   scope :group_by_months, -> {
     where.not(id: nil)
       .includes(:expense_item)
