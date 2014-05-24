@@ -1,0 +1,18 @@
+- scope = 'activerecord.attributes.outlay'
+
+.row
+  .samll-12.columns
+    / = bar_chart Outlay.amounts_by_expense_item(month)
+  .small-12.columns
+    .row
+      .small-2.columns.text-center.radius.secondary.label=t :created_at, scope: scope
+      .small-4.columns.text-center.radius.secondary.label=t :expense_item_id, scope: scope
+      .small-6.columns.text-center.radius.secondary.label=t :amount, scope: scope
+    - @outlays.each do |outlay|
+      .row
+        .small-2.columns.text-right= outlay.created_at.day
+        .small-4.columns.text-right= outlay.expense_item.name
+        .small-6.columns.text-right
+          = outlay.display_amount
+          = link_to outlay_path(outlay), method: :delete, id: "remove_outlay_#{outlay.id}", data: {confirm: '本当に削除しますか?'} do
+            = fa_icon 'trash-o'

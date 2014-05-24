@@ -1,6 +1,19 @@
 require 'spec_helper'
 
 describe Outlay do
+  describe '.monthly' do
+    let(:user) { create(:user) }
+
+    let(:outlay_0501) { create(:outlay, created_at: Date.parse('2013/05/01'), amount: 10000, user: user) }
+    let(:outlay_0531) { create(:outlay, created_at: Date.parse('2013/05/31'), amount: 20000, user: user) }
+    let(:outlay_0601) { create(:outlay, created_at: Date.parse('2013/06/01'), amount:  1000, user: user) }
+
+    subject { Outlay.monthly(Date.parse('2013/05/01')) }
+
+    it { should include(outlay_0501, outlay_0531) }
+    it { should_not include(outlay_0601) }
+  end
+
   describe '.amounts_by_expense_item' do
     let(:user) { create(:user) }
 
