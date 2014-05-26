@@ -1,4 +1,6 @@
 class OutlaysController < ApplicationController
+  layout false, only: :index
+
   def create
     user = User.find(current_user)
     @outlay = user.outlays.build(outlay_params)
