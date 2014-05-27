@@ -10,7 +10,6 @@ dl.accordion data-accordion=''
           span.right= number_to_yen(monthly_amount)
 
       .content id="accordion-outlay-#{year_month_dash}"
-        /class=(index.zero? ? 'active' : '')
         div id="outlays-monthly-#{year_month_dash}"
 
 coffee:
@@ -19,8 +18,14 @@ coffee:
       $(id).html html
 
   $ ->
-    $('a[data-year-month]').click (e) ->
+    $accordion_label = $('dl.accordion dd a[data-year-month]')
+
+    $accordion_label.click (e) ->
+      # TODO すでに読み込んでいる場合は何もしないようにしたい
+
       year_month = $(this).data('year-month').split('/')
       year  = year_month[0]
       month = year_month[1]
       show_outlays_monthly("#outlays-monthly-#{year}-#{month}", "/#{year}/#{month}")
+
+    $accordion_label.first().click()
