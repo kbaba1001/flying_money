@@ -27,4 +27,10 @@ class Outlay < ActiveRecord::Base
     .includes(:expense_item)
     .order(created_at: :desc)
   }
+
+  class << self
+    def monthly_amounts
+      group("to_char(created_at, 'YYYY/MM')").sum(:amount)
+    end
+  end
 end
