@@ -8,7 +8,7 @@ describe Outlay do
     let(:outlay_0531) { create(:outlay, created_at: Date.parse('2013/05/31'), amount: 20000, user: user) }
     let(:outlay_0601) { create(:outlay, created_at: Date.parse('2013/06/01'), amount:  1000, user: user) }
 
-    subject { Outlay.monthly(Date.parse('2013/05/01')) }
+    subject { user.outlays.monthly(Date.parse('2013/05/01')) }
 
     it { should include(outlay_0501, outlay_0531) }
     it { should_not include(outlay_0601) }
@@ -31,7 +31,7 @@ describe Outlay do
       create(:outlay, expense_item: traveling_expense, amount:  2000, created_at: Date.parse('2013/04/30'), user: user)
     end
 
-    subject { Outlay.amounts_by_expense_item(date) }
+    subject { user.outlays.amounts_by_expense_item(date) }
 
     context '5月の費目毎の合計値' do
       let(:date) { Date.parse('2013/05/01') }
