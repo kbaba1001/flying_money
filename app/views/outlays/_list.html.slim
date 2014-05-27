@@ -1,17 +1,17 @@
 - scope = 'activerecord.attributes.outlay'
 
 dl.accordion data-accordion=''
-  - outlay_months.each_with_index do |(date, outlays), index|
-    - year_month = date.strftime('%Y/%m')
+  - current_user.outlays.monthly_amounts.each do |year_month, monthly_amount|
+    - year_month_dash = year_month.gsub(?/, ?-)
     dd
-      = link_to "##{accordion_css_id(date)}", 'data-year-month' => year_month do
+      = link_to "#accordion-outlay-#{year_month_dash}", 'data-year-month' => year_month do
         .clearfix
           span.left= year_month
-          span.right= number_to_yen(outlays.sum(&:amount))
+          span.right= number_to_yen(monthly_amount)
 
-      .content id="#{accordion_css_id(date)}"
+      .content id="accordion-outlay-#{year_month_dash}"
         /class=(index.zero? ? 'active' : '')
-        div id="outlays-monthly-#{date.strftime('%Y-%m')}"
+        div id="outlays-monthly-#{year_month_dash}"
 
 coffee:
   show_outlays_monthly = (id, year_month) ->
