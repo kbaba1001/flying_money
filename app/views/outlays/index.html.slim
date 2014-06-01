@@ -2,7 +2,8 @@
 
 .row
   .samll-12.columns
-    = bar_chart @outlay_sums_by_expense_item, id: "outlay-chart-#{params[:year]}-#{params[:month]}"
+    - unless Rails.env.test?
+      = bar_chart @outlay_sums_by_expense_item, id: "outlay-chart-#{params[:year]}-#{params[:month]}"
   .small-12.columns
     .row
       .small-2.columns.text-center.radius.secondary.label=t :created_at, scope: scope
