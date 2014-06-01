@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action_args (1.3.0)
     actionmailer (4.1.1)
       actionpack (= 4.1.1)
       actionview (= 4.1.1)
@@ -327,6 +328,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_args
   awesome_print
   bullet
   chartkick

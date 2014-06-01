@@ -1,9 +1,11 @@
 class OutlaysController < ApplicationController
+  permits :expense_item_id, :amount, :note
+
   layout false, only: :index
 
-  def create
+  def create(outlay)
     user = User.find(current_user)
-    @outlay = user.outlays.build(outlay_params)
+    @outlay = user.outlays.build(outlay)
 
     if @outlay.save
       redirect_to root_path
@@ -24,17 +26,13 @@ class OutlaysController < ApplicationController
     }
   end
 
-  def destroy
-    outlay = Outlay.find(params[:id])
+  def destroy(id)
+    outlay = Outlay.find(id)
     outlay.destroy
     redirect_to root_path
   end
 
   private
-
-  def outlay_params
-    params.require(:outlay).permit(:expense_item_id, :amount, :note)
-  end
 
   def parse_params_date
     Date.new(params[:year].to_i, params[:month].to_i)
