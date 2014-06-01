@@ -14,6 +14,8 @@ class OutlaysController < ApplicationController
   end
 
   def index
+    redirect_to root_path unless request.xhr?
+
     user = User.find(current_user)
     @outlays = user.outlays.monthly(parse_params_date).decorate
     @outlay_sums_by_expense_item = @outlays.each_with_object({}) {|ol, hash|
