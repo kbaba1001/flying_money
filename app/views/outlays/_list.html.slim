@@ -14,10 +14,13 @@ dl.accordion data-accordion=''
 
 coffee:
   show_outlays_monthly = (id, year_month) ->
+    $id = $(id)
+    return unless $id.children().length is 0
+
     $.ajax
       url: year_month,
       success: (html) ->
-        $(id).html html
+        $id.html html
         $(document).foundation('tooltip')
 
   $ ->
