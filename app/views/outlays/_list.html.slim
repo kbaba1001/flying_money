@@ -14,8 +14,10 @@ dl.accordion data-accordion=''
 
 coffee:
   show_outlays_monthly = (id, year_month) ->
-    $.ajax(url: year_month).done (html) ->
-      $(id).html html
+    $.ajax
+      url: year_month,
+      success: (html) ->
+        $(id).html html
 
   $ ->
     $accordion_label = $('dl.accordion dd a[data-year-month]')
