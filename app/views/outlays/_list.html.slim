@@ -18,6 +18,7 @@ coffee:
       url: year_month,
       success: (html) ->
         $(id).html html
+        $(document).foundation('tooltip')
 
   $ ->
     $accordion_label = $('dl.accordion dd a[data-year-month]')
