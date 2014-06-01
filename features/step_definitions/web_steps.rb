@@ -3,7 +3,6 @@
     case page_name
     when 'トップ'       then root_path
     when 'サインアップ' then new_user_registration_path
-    when 'outlays_index' then '/2014/04'
     else raise ArgumentError
     end
 
