@@ -1,6 +1,6 @@
 - scope = 'activerecord.attributes.expense_item'
 
-= form_for @expense_item, method: :post do |f|
+= form_for @expense_item, method: :post, builder: CustomFormBuilder do |f|
   fieldset
     legend 費目追加
     .row
