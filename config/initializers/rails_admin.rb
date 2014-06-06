@@ -11,8 +11,10 @@ RailsAdmin.config do |config|
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard do
+      statistics false
+    end
+    index
     new
     export
     bulk_delete
@@ -20,5 +22,27 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+  end
+
+  config.model 'Outlay' do
+    edit do
+      field :created_at do
+        date_format do
+          'short'
+        end
+      end
+      field :amount
+      field :note
+      field :expense_item
+      field :user
+    end
+  end
+
+  config.model 'User' do
+    edit do
+      field :email
+      field :password
+      field :password_confirmation
+    end
   end
 end
