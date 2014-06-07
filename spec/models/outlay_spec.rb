@@ -25,15 +25,18 @@ describe Outlay do
 
       create(:outlay, amount:  2000, created_at: Date.parse('2013/04/01'), user: user)
       create(:outlay, amount:  2000, created_at: Date.parse('2013/04/30'), user: user)
+
+      create(:outlay, amount:  2000, created_at: Date.parse('2013/03/01'), user: user)
     end
 
     subject { user.outlays.monthly_amounts }
 
     it do
-      should include(
+      should eq({
         '2013/05' => 18000,
-        '2013/04' => 4000
-      )
+        '2013/04' => 4000,
+        '2013/03' => 2000
+      })
     end
   end
 end

@@ -16,8 +16,7 @@ class Outlay < ActiveRecord::Base
 
   class << self
     def monthly_amounts
-      # order(created_at: :desc).
-      group("to_char(created_at, 'YYYY/MM')").sum(:amount)
+      group("to_char(created_at, 'YYYY/MM')").order("to_char(created_at, 'YYYY/MM') DESC").sum(:amount)
     end
   end
 end
