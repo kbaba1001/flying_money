@@ -32,4 +32,6 @@ table
       tr
         td= expense_item.display_order
         td= expense_item.name
-        td= link_to '削除', expense_item_path(expense_item), method: :delete, data: {confirm: '本当に削除しますか?'}
+        td
+          = link_to expense_item_path(expense_item), method: :delete, data: {confirm: '本当に削除しますか?'}, id: "remove_expense_item_#{expense_item.id}" do
+            = fa_icon 'trash-o'
