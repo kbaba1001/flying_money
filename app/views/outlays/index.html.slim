@@ -1,6 +1,6 @@
 - scope = 'activerecord.attributes.outlay'
 
-.row
+.row.monthly-outlays
   .samll-12.columns
     - unless Rails.env.test?
       = bar_chart @outlay_sums_by_expense_item, id: "outlay-chart-#{params[:year]}-#{params[:month]}"

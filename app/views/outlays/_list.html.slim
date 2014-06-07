@@ -11,11 +11,12 @@ dl.accordion data-accordion=''
 
       .content id="accordion-outlay-#{year_month_dash}"
         div id="outlays-monthly-#{year_month_dash}"
+          .text-center= fa_icon 'spinner spin'
 
 coffee:
   show_outlays_monthly = (id, year_month) ->
     $id = $(id)
-    return unless $id.children().length is 0
+    return if $id.children('.monthly-outlays').length is 1
 
     $.ajax
       url: year_month,

@@ -10,7 +10,6 @@ class OutlaysController < ApplicationController
     if @outlay.save
       redirect_to root_path
     else
-      @outlay_months = user.outlays.group_by_months
       render 'dashboards/show'
     end
   end

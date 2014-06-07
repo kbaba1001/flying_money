@@ -7,20 +7,6 @@ class Outlay < ActiveRecord::Base
   validates :note, length: {maximum: 140}
   validates :user_id, presence: true
 
-  # TODO: 支出一覧の表示方法を変更したら消すこと
-  scope :group_by_months, -> {
-    where.not(id: nil)
-      .includes(:expense_item)
-      .order(created_at: :desc)
-      .group_by {|outlay| outlay.created_at.beginning_of_month }
-  }
-
-  scope :amounts_by_expense_item, ->(date) {
-    where('? <= outlays.created_at AND outlays.created_at < ?',
-      date.beginning_of_month, date.next_month.beginning_of_month)
-    .joins(:expense_item).group(:name).sum(:amount)
-  }
-
   scope :monthly, -> (date) {
     where('? <= outlays.created_at AND outlays.created_at < ?',
       date.beginning_of_month, date.next_month.beginning_of_month)
@@ -30,7 +16,7 @@ class Outlay < ActiveRecord::Base
 
   class << self
     def monthly_amounts
-      group("to_char(created_at, 'YYYY/MM')").sum(:amount)
+      group("to_char(created_at, 'YYYY/MM')").order("to_char(created_at, 'YYYY/MM') DESC").sum(:amount)
     end
   end
 end
