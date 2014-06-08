@@ -1,4 +1,4 @@
-= form_for outlay, method: :post, builder: CustomFormBuilder do |f|
+= form_for outlay, builder: CustomFormBuilder, html: {novalidate: 'novalidate', method: :post} do |f|
   fieldset
     legend 新規登録
     .row
