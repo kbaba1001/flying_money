@@ -1,0 +1,9 @@
+test: &test
+  host: localhost
+  template: template0
+  adapter:  postgresql
+  encoding: unicode
+  database: test
+  username: postgres
+  password:
+  port: 5432
