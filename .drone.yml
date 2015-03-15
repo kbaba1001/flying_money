@@ -1,6 +1,8 @@
 image: ruby2.0.0
 services:
   - postgres
+env:
+  - TEST_SECRET_KEY_BASE=3aeced029e6cc657c3f6c911289120d8a6c16da0da9b0a3bffe5601e89c0343dc1eb8c6122b240ad31f63843fdcb72cdfc7e590a680feef5616dd9f2bce2451e
 script:
   - mkdir -p /tmp/bundle
   - sudo chown -R ubuntu:ubuntu /tmp/bundle
