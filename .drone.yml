@@ -1,10 +1,13 @@
 image: ruby2.0.0
 services:
-  - postgresql
+  - postgres
+env:
+  - TEST_SECRET_KEY_BASE=3aeced029e6cc657c3f6c911289120d8a6c16da0da9b0a3bffe5601e89c0343dc1eb8c6122b240ad31f63843fdcb72cdfc7e590a680feef5616dd9f2bce2451e
 script:
   - mkdir -p /tmp/bundle
   - sudo chown -R ubuntu:ubuntu /tmp/bundle
-  - bundle install -j8 --path /tmp/bundle
+  - gem update bundler
+  - bundle install -j4 --path /tmp/bundle
   - cp config/database.yml.drone config/database.yml
   - bundle exec rake db:create db:migrate spec
 cache:
