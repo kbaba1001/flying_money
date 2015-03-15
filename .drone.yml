@@ -1,4 +1,6 @@
-image: base
+image: ruby2.0.0
+services:
+  - postgresql
 script:
   - mkdir -p /tmp/bundle
   - sudo chown -R ubuntu:ubuntu /tmp/bundle
