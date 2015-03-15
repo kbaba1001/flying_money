@@ -1,6 +1,4 @@
-image: ruby2.0.0
-services:
-  - base
+image: base
 script:
   - mkdir -p /tmp/bundle
   - sudo chown -R ubuntu:ubuntu /tmp/bundle
